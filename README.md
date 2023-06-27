@@ -5,7 +5,7 @@ Welcome to the world's first project tracking system that has the user's persona
 **Your Boss?**<br>
 <img src="./images/mrboss.png" alt="Greedy Boss at desk" width="400"/>
 
-**Or may be you favorite client?**<br>
+**Or may be your favorite client?**<br>
 <img src="./images/favclient.png" alt="Screaming Client on Phone" width="400"/>
 
 **But what about you, personally?**<br>
