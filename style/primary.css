@@ -1,0 +1,102 @@
+.main-nav img {
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+
+.main-nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background-image: linear-gradient(to left, #2c3e50, #4ca1af);
+    color: white;
+    border-radius: 3px;
+    padding: 0em 1em;
+    font-family: sans-serif;
+
+}
+
+.main-nav .cmp-header {
+    width: 80%;
+}
+
+.main-nav .navOptions {
+    list-style-type: none;
+    padding: 0 15px;
+    margin: 0;
+    display: flex;
+    flex: 3;
+    height: 100%;
+
+}
+
+.main-nav .navItem {
+    margin-right: 1em;
+    font-size: 1.25em;
+
+    padding: 0 15px;
+    margin: 0;
+
+    display: flex;
+
+    font-size: 1.25em;
+    width: 100px;
+    align-items: center;
+}
+
+.main-nav .navSelected {
+    background: rgb(60,113,129);
+}
+
+.main-nav a, a:link, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+#timer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    min-width: 400px;
+}
+
+#timerTask {
+    font-size: 1.25em;
+    padding: 10px 0;
+
+}
+
+#runningClock {
+    display: flex;
+    align-items: baseline;
+}
+
+
+#runningClock .timerInterval {
+    width: 60px;
+    font-size: .75em;
+    vertical-align: middle;
+}
+
+#runningClock .timerClock {
+    width: 125px;
+}
+
+
+@media screen and (max-width: 575px) {
+    .main-nav {
+        flex-direction: column;
+    }
+
+    .main-nav ul {
+        flex-direction: row;
+        /* Change this to 'column' to stack the links */
+        margin-bottom: 1em;
+    }
+}
