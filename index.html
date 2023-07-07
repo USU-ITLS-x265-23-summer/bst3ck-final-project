@@ -5,12 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klokke</title>
-    <link rel="stylesheet" type="text/css" href="./style/primary.css" />
     
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" href="./style/primary.css" />
+    <link rel="stylesheet" type="text/css" href="./style/main.css" />
+    
+    <!-- Script Files -->
     <script src="./scripts/primary.js"></script>
     <script src="./scripts/globalHeader.js"></script>
+    
+    <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/images/clock.ico">
 </head>
 
@@ -18,6 +30,68 @@
     <!-- Top Navigation Menu -->
     <div id="globalHeader"></div>
 
+    <div class="main-content">
+        <h1>Time and Task Management Summary</h1>
+    </div>
+    <div class="main-content">
+        <div class="main-items splitColumn-100" id="goal-summary">
+            <div class="card-title splitColumn-100">
+                <h2>Personal Goals</h2>
+            </div>
+            <hr>
+            <div class="personal-goal">
+                <div class="goal-desc splitColumn-50">
+                    <div class="goal-title">Improve Worklife Balance</div>
+                    <div class="last-activity"><span class="la-title">Last Activity: </span>Movie Night <span class="days-ago">10 days ago</span></div>
+                </div>
+                <div class="goal-status splitColumn-50">
+                    <div class="goal-percentage">70%</div>
+                    <div class="goal-progress">
+                        <div class="goal-complete" style="width:70%"></div>
+                    </div>
+                    <div class="goal-dates">
+                        <div class="goal-ss-date">1/1</div>
+                        <div class="goal-ss-date">12/31</div>
+                    </div>
+                </div>
+            </div>
+            <div class="personal-goal">
+                <div class="goal-desc splitColumn-50">
+                    <div class="goal-title">Learn a new skill</div>
+                    <div class="last-activity"><span class="la-title">Last Activity: </span>Guitar Lesson <span class="days-ago">15 days ago</span></div>
+                </div>
+                <div class="goal-status splitColumn-50">
+                    <div class="goal-percentage">30%</div>
+                    <div class="goal-progress">
+                        <div class="goal-complete" style="width:100%">
+                        </div>
+                    </div>
+                    <div class="goal-dates">
+                        <div class="goal-ss-date">1/1</div>
+                        <div class="goal-ss-date">6/30</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="main-items splitColumn-60" id="task-list">
+            <div class="card-title splitColumn-100">
+                <h2>Task List</h2>
+            </div>
+            <hr>
+            
+        </div>
+        <div class="main-items splitColumn-40" id="project-summary">
+            <div class="card-title splitColumn-100">
+                <h2>Project Summary</h2>
+            </div>
+            <hr>
+
+        </div>
+    </div>
     
 </body>
 
