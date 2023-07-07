@@ -1,9 +1,18 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Mulish', sans-serif;
+}
+
+h2 {
+    margin: 12px 0px;
+    font-size: 20px;
+}
+
 .main-nav img {
     float: left;
     width: 100px;
     height: 100px;
 }
-
 
 .main-nav {
     display: flex;
@@ -14,7 +23,6 @@
     border-radius: 3px;
     padding: 0em 1em;
     font-family: sans-serif;
-
 }
 
 .main-nav .cmp-header {
@@ -28,7 +36,6 @@
     display: flex;
     flex: 3;
     height: 100%;
-
 }
 
 .main-nav .navItem {
@@ -82,6 +89,31 @@
 
 #runningClock .timerClock {
     width: 125px;
+}
+
+.splitColumn-100 {
+    /* width: calc(100% - 3.5em); */
+    width: 100%;
+}
+
+.splitColumn-80 {
+    width: calc(80% - 3.5em);
+}
+
+.splitColumn-60 {
+    width: calc(60% - 3.5em);
+}
+
+.splitColumn-50 {
+    width: calc(50% - 3.5em);
+}
+
+.splitColumn-40 {
+    width: calc(40% - 3.5em);
+}
+
+.splitColumn-20 {
+    width: calc(20% - 3.5em);
 }
 
 
