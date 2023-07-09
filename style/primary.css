@@ -97,23 +97,23 @@ h2 {
 }
 
 .splitColumn-80 {
-    width: calc(80% - 3.5em);
+    width: calc(80% - 6.0em);
 }
 
 .splitColumn-60 {
-    width: calc(60% - 3.5em);
+    width: calc(60% - 6.0em);
 }
 
 .splitColumn-50 {
-    width: calc(50% - 3.5em);
+    width: calc(50% - 6.0em);
 }
 
 .splitColumn-40 {
-    width: calc(40% - 3.5em);
+    width: calc(40% - 6.0em);
 }
 
 .splitColumn-20 {
-    width: calc(20% - 3.5em);
+    width: calc(20% - 6.0em);
 }
 
 
@@ -126,5 +126,18 @@ h2 {
         flex-direction: row;
         /* Change this to 'column' to stack the links */
         margin-bottom: 1em;
+    }
+
+    /* .dual-split {
+        flex-direction: column;
+    }
+
+    .dual-split > .main-items {
+        padding: 1em 1.5em;
+    }
+    */
+    
+    .splitColumn-100, .splitColumn-80, .splitColumn-60, .splitColumn-50, .splitColumn-40, .splitColumn-20 {
+        width: 100%;    
     }
 }
