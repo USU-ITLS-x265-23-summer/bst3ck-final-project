@@ -30,15 +30,16 @@
     border-top: 1px dotted darkslategray;
 }
 
+/* **********************
+** Personal Goals
+********************** */
+
 .personal-goal {
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
-    /* border: 1px solid yellow; */
     margin: 6px 0px;
-;
-
 }
 
 .last-activity {
@@ -63,7 +64,6 @@
 
 .last-activity{
     padding-left: 12px;
-    
 }
 
 .goal-percentage {
@@ -96,7 +96,10 @@
     color: rgb(80, 78, 177);
 }
 
-/* Task List CSS */
+/* **********************
+** Task List CSS
+********************** */
+
 .task-item {
     display: flex;
     justify-content: center;
@@ -109,7 +112,6 @@ hr.task-hr {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
-
 }
 
 .task-breakdown {
@@ -126,28 +128,6 @@ hr.task-hr {
     margin-bottom: 4px;
     justify-content: space-between;
 }
-
-/* .task-main .task-title, .task-main .task-due {
-   flex: 1 0 auto;
-}
-
-.task-main .dots {
-    flex: 0 1 auto;
-    margin: 0 5px;
-    overflow: hidden;
-}
-
-.dots::before {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-    content: 
-     ". . . . . . . . . . . . . . . . . . . . "
-     ". . . . . . . . . . . . . . . . . . . . "
-     ". . . . . . . . . . . . . . . . . . . . "
-     ". . . . . . . . . . . . . . . . . . . . ";
-} */
 
 .task-due::before {
     content:"Due Date:";
@@ -209,8 +189,73 @@ hr.task-hr {
     background-color: green;
 }
 
+/* **********************
+** Client List
+********************** */
 
-@media screen and (max-width: 575px) {
+h3.client-name {
+    margin: 12px 0px;
+}
+
+ol.project-list li:not(:first-child) {
+    margin-top: 15px;
+}
+
+.client-project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.project-summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.project-budget::before {
+    content: "Budget\00000a";
+    white-space: pre;
+}
+
+.project-billed::before {
+    content: "Billed\00000a";
+    white-space: pre;
+}
+
+.project-remaining::before {
+    content: "Remaining\00000a";
+    white-space: pre;
+}
+
+.project-budget, .project-billed, .project-remaining {
+    width: 85px;
+
+    font-size: .80em;
+}
+
+.project-budget::before, .project-billed::before, .project-remaining::before {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 6px;
+    font-size: .60em;
+}
+
+ol {
+    list-style-type: upper-roman;
+}
+
+
+
+
+
+/* **********************
+** Responsive
+********************** */
+
+
+@media screen and (max-width: 745px) {
     .task-submenu {
         flex-direction: column;
     }
@@ -225,5 +270,8 @@ hr.task-hr {
     .dots, .dots::before{
         display: hidden;
     }
+    /* .client-project {
+        flex-direction: column;
+    } */
 
 }

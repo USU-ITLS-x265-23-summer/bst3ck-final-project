@@ -157,7 +157,7 @@ h2 {
 
 
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 745px) {
     .main-nav {
         flex-direction: column;
     }
