@@ -3,13 +3,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1em 1.5em;
+    /* padding: 1em 1.5em; */
 
+}
+
+.main-content h1{
+    margin: 12px 1.5em;
 }
 
 .main-items{
     /* border: 2px solid purple; */
     padding: 1em 1.5em;
+    margin: 1em 1.5em;
     border-radius: 15px 15px 30px 5px;
     background-color: #dbd9d9;
     
@@ -91,5 +96,134 @@
     color: rgb(80, 78, 177);
 }
 
+/* Task List CSS */
+.task-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr.task-hr {
+    margin: 18px auto;
+    width: 60%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
+
+}
+
+.task-breakdown {
+    width: 100%;
+}
+
+.complete {
+    margin-top: 2px;
+    margin-right: 8px;
+}
+
+.task-main {
+    display: flex;
+    margin-bottom: 4px;
+    justify-content: space-between;
+}
+
+/* .task-main .task-title, .task-main .task-due {
+   flex: 1 0 auto;
+}
+
+.task-main .dots {
+    flex: 0 1 auto;
+    margin: 0 5px;
+    overflow: hidden;
+}
+
+.dots::before {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    content: 
+     ". . . . . . . . . . . . . . . . . . . . "
+     ". . . . . . . . . . . . . . . . . . . . "
+     ". . . . . . . . . . . . . . . . . . . . "
+     ". . . . . . . . . . . . . . . . . . . . ";
+} */
+
+.task-due::before {
+    content:"Due Date:";
+    font-size: .6em;
+    font-weight: bold;;
+    margin-right: 12px;
+}
+
+.task-submenu {
+    display: flex;
+    font-size: .60em;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.task-client {
+    font-size: 1.3em;
+}
+
+.priority {
+    display: flex;
+}
+
+.task-urgent {
+    margin-right: 18px;
+}
+
+.task-urgent::before {
+    content:"Urgency:";
+}
+
+.task-importance::before {
+    content:"Importance:";
+}
+
+.task-urgent::before, .task-importance::before {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 6px;
+}
+
+.matrix {
+    padding-left: 18px;
+    padding-right: 8px;
+}
+
+.urgent, .notUrgent {
+    border: 1px solid darkslategrey;
+    width: 12px;
+    height: 12px;
+}
+
+.import, .notImport {
+    display: flex;
+    flex-direction: row;
+}
+
+.quad1 .import .urgent, .quad2 .import .notUrgent, .quad3 .notImport .urgent, .quad4 .notImport .notUrgent {
+    background-color: green;
+}
 
 
+@media screen and (max-width: 575px) {
+    .task-submenu {
+        flex-direction: column;
+    }
+
+    .task-importance {
+        margin: 0px 0px;
+    }
+
+    .priority {
+        flex-direction: column;
+    }
+    .dots, .dots::before{
+        display: hidden;
+    }
+
+}
