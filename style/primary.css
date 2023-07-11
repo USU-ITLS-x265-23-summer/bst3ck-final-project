@@ -63,16 +63,33 @@ h2 {
 
 #timer {
     display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     min-width: 400px;
+    margin: 12px;
+    padding: 12px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #dbd9d9;
+    color: darkslategray;
+}
+
+#clock {
+    margin-left: 12px;
+}
+
+#stopTimer {
+    border-left: 1px solid darkslategrey;
+    cursor: pointer;
+}
+
+#stopTimer p {
+    margin: 12px;
 }
 
 #timerTask {
     font-size: 1.25em;
     padding: 10px 0;
-
 }
 
 #runningClock {
@@ -80,6 +97,23 @@ h2 {
     align-items: baseline;
 }
 
+#startTime::before {
+    content: "Start: ";
+}
+
+#endTime::before {
+    content: "End: ";
+}
+
+#startTime::before, #endTime::before {
+    font-size: .8em;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+#runningClock {
+    margin: 0px 0px 10px 0px;
+}
 
 #runningClock .timerInterval {
     width: 60px;
@@ -115,6 +149,8 @@ h2 {
 .splitColumn-20 {
     width: calc(20% - 6.0em);
 }
+
+
 
 
 /* Block Quote Markup */
