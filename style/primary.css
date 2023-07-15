@@ -3,9 +3,39 @@ body {
     font-family: 'Mulish', sans-serif;
 }
 
+.main-content h1{
+    margin: 26px 26px;
+    font-size: 2.25em;
+}
+
 h2 {
     margin: 12px 0px;
     font-size: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.main-items{
+    /* border: 2px solid purple; */
+    padding: 1em 1.5em;
+    margin: 1em 1.5em;
+    border-radius: 15px 15px 30px 5px;
+    background-color: #dbd9d9;
+    
+    min-height: 100px;
+
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+.main-items hr {
+    border-top: 1px dotted darkslategray;
 }
 
 .main-nav img {
@@ -146,8 +176,78 @@ h2 {
     width: calc(40% - 6.0em);
 }
 
+.splitColumn-33 {
+    width: calc(33% - 6.0em);
+}
+
 .splitColumn-20 {
     width: calc(20% - 6.0em);
+}
+
+/* **********************
+** Personal Goals
+********************** */
+
+.personal-goal {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    margin: 6px 0px;
+}
+
+.last-activity {
+    font-size: .90em;
+}
+
+.la-title {
+    font-weight: bold;
+}
+
+.days-ago {
+    float: right;
+}
+
+.goal-title {
+    font-size: 1.15em;
+}
+
+.last-activity:before {
+    content:" ↳ ";
+}
+
+.last-activity{
+    padding-left: 12px;
+}
+
+.goal-percentage {
+    text-align: center;
+    font-size: .75em;
+}
+
+.goal-dates {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goal-progress {
+    width: 100%;
+    height: 20px;
+    background-color: cadetblue;
+    border-radius: 10px 10px 20px 5px;
+}
+
+.goal-complete {
+    background-color: #2c3e50;
+    height: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 10px 10px 15px 0px;
+}
+
+.goal-ss-date {
+    font-size: .60em;    
+    color: rgb(80, 78, 177);
 }
 
 
@@ -192,28 +292,37 @@ h2 {
 }
 
 
-
-@media screen and (max-width: 745px) {
+/* @media screen and (max-width: 1024px) {
     .main-nav {
         flex-direction: column;
     }
 
     .main-nav ul {
         flex-direction: row;
-        /* Change this to 'column' to stack the links */
         margin-bottom: 1em;
     }
 
-    /* .dual-split {
+    .splitColumn-100, .splitColumn-80, .splitColumn-60 {
+        width: 100%;    
+    }
+
+    .splitColumn-50, .splitColumn-40, .splitColumn-33, .splitColumn-20 {
+        width: 50%;
+    }
+} */
+
+
+@media screen and (max-width: 768px) {
+    .main-nav {
         flex-direction: column;
     }
 
-    .dual-split > .main-items {
-        padding: 1em 1.5em;
+    .main-nav ul {
+        flex-direction: row;
+        margin-bottom: 1em;
     }
-    */
-    
-    .splitColumn-100, .splitColumn-80, .splitColumn-60, .splitColumn-50, .splitColumn-40, .splitColumn-20 {
+
+    .splitColumn-100, .splitColumn-80, .splitColumn-60, .splitColumn-50, .splitColumn-40, .splitColumn-33, .splitColumn-20 {
         width: 100%;    
     }
 }

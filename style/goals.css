@@ -1,0 +1,204 @@
+.pgoal-desc {
+    font-size: .90em;
+    margin-bottom: 15px;
+}
+
+.pgoals-spec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+
+.pgoal-details {
+    text-align: center;
+    margin-top: 6px;
+}
+
+.pgoal-details-lbl {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .80em;
+    text-decoration: underline;
+    
+}
+
+.pgoal-details-val {
+    font-size: .80em;
+    
+}
+
+.pgoal-tasks-dtls {
+    font-size: .80em;
+}
+
+ol.pTasks {
+    counter-reset: index;
+    padding-left: 12px;
+}
+
+.pgoal-task-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li.pgoal-tasks-dtls {
+    counter-increment: index;
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    box-sizing: border-box;
+
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+}
+
+li.pgoal-tasks-dtls::before {
+    content: counters(index, ".", decimal-leading-zero);
+    font-size: 1.25rem;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 12px;
+    align-self: flex-start;
+    background-image: linear-gradient(to bottom, #2c3e50, #4ca1af);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pgoal-act-desc {
+    width: 275px;
+    margin-right: 6px;
+}
+
+.pgoal-act-date::before {
+    content: "Date:";
+}
+.pgoal-act-hours::before {
+    content: "Hours:"
+}
+
+.pgoal-act-date::before, .pgoal-act-hours::before {
+    text-transform: uppercase;
+    font-size: .60em;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.pgoal-act-date {
+    min-width: 140px;
+    margin-right: 6px;
+}
+
+.add-pgoal-task img {
+    width: 24px;
+    height: 24px;
+    margin: auto 12px;
+    cursor: pointer;
+}
+
+.new-pgoal-task {
+    border: 1px solid darkslategray;
+    background-image: linear-gradient(to left, #bebec1, #f8fafb);
+    border-radius: 10px 10px 20px 3px;
+    min-height: 50px;
+    padding: 15px 15px;
+    font-size: .80em;
+    margin: 20px 0px;
+}
+
+.new-pgoal-title {
+    font-weight: bold;
+}
+
+.new-pgoal-task form {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.new-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new-fields label {
+    font-size: .90em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.activity-desc {
+    width: 275px;
+}
+
+.activity-hour {
+    width: 50px;
+}
+
+.new-fields.goal-activity, .new-fields.goal-time {
+    margin-right: 15px;
+}
+
+.submitBtn {
+  align-items: center;
+  background-color: #2c3e50;
+  border: 0;
+  border-radius: 70px;
+  box-sizing: border-box;
+  color: #ffffff;
+  
+  cursor: pointer;
+  display: inline-flex;
+  
+  font-weight: bold;
+  justify-content: center;
+  max-width: 480px;
+  min-height: 35px;
+  min-width: 55px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.submitBtn:hover,
+.submitBtn:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.submitBtn:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.submitBtn:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+.goal-activity {
+    min-width: 275px;
+}
+
+.goal-time {
+    min-width: 120px;
+}
