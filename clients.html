@@ -10,12 +10,13 @@
     <link rel="stylesheet" type="text/css" href="./style/primary.css" />
     <link rel="stylesheet" type="text/css" href="./style/clients.css" />
     
+    <!-- Jquery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <!-- Script Files -->
     <script src="./scripts/primary.js"></script>
     <script src="./scripts/globalHeader.js"></script>
-    
-    <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./scripts/client.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,16 +38,16 @@
 
         <div class="client-nav">
             <div class="client-title">Client List</div>
-            <ol class="client-list">
+            <ol class="client-list" id="fullClientList">
                 <li class="client-name">Caterpillar Inc.</li>
                 <li class="client-name">American Red Cross</li>
-                <li class="client-name">Zions Bancorporation</li>
+                <li class="client-name">Zions Bank</li>
                 <li class="client-name">Browning</li>
                 <li class="client-name">General Motors</li>
                 <li class="client-name">Tao Group</li>
                 <li class="client-name">Caterpillar Inc.</li>
                 <li class="client-name">American Red Cross</li>
-                <li class="client-name">Zions Bancorporation</li>
+                <li class="client-name">Zions Bank</li>
                 <li class="client-name">Browning</li>               
                 <li class="client-name">Caterpillar Inc.</li>
                 <li class="client-name">American Red Cross</li>
@@ -130,8 +131,73 @@
             
                     </div>
                 </div>
-                <div class="main-items">
+                <div class="main-items client-project">
+                    <div class="proj-intro">
+                        <h3 class="proj-title">New Product Launch Event</h3>
+                        <div class="project-details">
+                            <div class="proj-start divHdr"><div class="subHeader">Start Date</div><div class="divValue">6/1/23</div></div>
+                            <div class="proj-estimate-date divHdr"><div class="subHeader">Target Date</div><div class="divValue">8/31/23</div></div>
+                        </div>
+                        <div class="project-details">
+                            <div class="proj-budget divHdr"><div class="subHeader">Budget</div><div class="divValue">$30,000</div></div>
+                            <div class="proj-billed divHdr"><div class="subHeader">Billed</div><div class="divValue">$5,000</div></div>
+                            <div class="proj-remaining divHdr"><div class="subHeader">Remaining</div><div class="divValue">$25,000</div></div>
+                        </div>
+                        <div class="proj-desc divHdr">
+                            <div class="subHeader">Project Description</div>
+                            <div class="divValue">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, quis necessitatibus tempore perspiciatis 
+                                in totam quaerat corrupti temporibus, laborum fugiat rem velit. Molestiae eveniet laudantium totam in 
+                                voluptatem sit ab.
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="proj-tasks">
+                        <ol class="task-list">
+                            <li class="task-li">
+                                <div class="task-dtl">
+                                    <div class="task-title">Initial Customer Stakeholder Review<span class="task-status onTime">In Progress</span></div>
+                                    <div class="task-breakdown">
+                                        <div class="hr-date project-details">
+                                            <div class="task-start-date divHdr"><div class="subHeader">Start</div><div class="divValue">4/1/23</div></div>
+                                            <div class="task-target-date divHdr"><div class="subHeader">Due Date</div><div class="divValue">4/8/23</div></div>
+                                        </div>
+                                        <div class="verticalLine"><div class="vl">&nbsp;</div><div class="vr">&nbsp;</div></div>
+                                        <div class="billables project-details">
+                                            <div class="task-hrs-spent divHdr"><div class="subHeader">Total Hours</div><div class="divValue">10</div></div>
+                                            <div class="task-bill-rate divHdr"><div class="subHeader">Hourly Rate</div><div class="divValue">$125</div></div>
+                                            <div class="task-billable divHdr"><div class="subHeader">Billed Cost</div><div class="divValue">$1,250</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
 
+                            <li class="task-li">
+                                <div class="task-dtl">
+                                    <div class="task-title">Develop marketing plan and creative brief<span class="task-status onTime">In Progress</span></div>
+                                    <div class="task-breakdown">
+                                        <div class="hr-date project-details">
+                                            <div class="task-start-date divHdr"><div class="subHeader">Start</div><div class="divValue">4/10/23</div></div>
+                                            <div class="task-target-date divHdr"><div class="subHeader">Due Date</div><div class="divValue">4/27/23</div></div>
+                                        </div>
+                                        <div class="verticalLine"><div class="vl">&nbsp;</div><div class="vr">&nbsp;</div></div>
+                                        <div class="billables project-details">
+                                            <div class="task-hrs-spent divHdr"><div class="subHeader">Total Hours</div><div class="divValue">10</div></div>
+                                            <div class="task-bill-rate divHdr"><div class="subHeader">Hourly Rate</div><div class="divValue">$125</div></div>
+                                            <div class="task-billable divHdr"><div class="subHeader">Billed Cost</div><div class="divValue">$1,250</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ol>
+
+                        <div class="add-task-btn">
+                            <img src="./images/blue-add-button.svg" alt="Add Client Task">
+                        </div>
+            
+                    </div>
                 </div>
 
 

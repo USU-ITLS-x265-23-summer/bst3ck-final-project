@@ -1,8 +1,7 @@
 console.log("Loaded GlobalHeader javascript file");
 
 window.addEventListener('DOMContentLoaded',function () {
-    console.log("Dom Loaded");
-
+    
     $("#globalHeader").load("./global/globalHeader.html");
     
     waitForElm("#" + selectedTab).then((elm) => {
