@@ -69,7 +69,7 @@ li.client-name::before {
     min-width: calc(100vw - (450px));    
 }
 
-.client-intro {
+#client-intro {
     width: 100%;
     display: flex;
     flex-direction: row;
