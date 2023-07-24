@@ -1,15 +1,6 @@
 console.log("Starting client js");
 localStorage.setItem("selClient",null);
 
-// Global variable Set Up
-let USDollar = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0, 
-    minimumFractionDigits: 0
-});
-
-
 $(document).ready(function(){
     
     $.ajax({
