@@ -117,24 +117,28 @@ function addTaskForm(selectdGoal) {
     addNewForm += `         <input type="text" class="activity-hour" name="activity-desc" id="activity-desc">`
     addNewForm += `     </div>`
 
-    addNewForm += `     <button type="button" class="submitBtn">Add New</button>`
+    addNewForm += `     <button type="button" class="submitBtn" id="addFormBtn-${selectdGoal}">Add New</button>`
     addNewForm += ` </form>`
     addNewForm += `</div>`
 
     $(addNewForm).insertBefore(`#${selectdGoal} .add-pgoal-task`);
 
-    $(document).on("click",".submitBtn", function() {
-        
-        selectdGoal = $(this).parent().parent().attr("id");
+    $(`#${selectdGoal} .add-pgoal-task`).addClass("hidden");
 
-        addNewFormSubmit(`${selectdGoal}`);
+    $(document).on("click",`#addFormBtn-${selectdGoal}`, function() {
+        
+        selectdGoalForm = $(this).parent().parent().attr("id");
+        selectdGoal = $(this).parent().parent().parent().attr("id");
+        addNewFormSubmit(selectdGoalForm, selectdGoal);
 
     });
 
 }
 
-function addNewFormSubmit(submittedForm) {
+function addNewFormSubmit(submittedForm, selectdGoal) {
     alert(`form submitted: ${submittedForm}`);
+    $(`#${selectdGoal} .add-pgoal-task`).removeClass("hidden");
 
     $(`#${submittedForm}`).remove();
+
 }
