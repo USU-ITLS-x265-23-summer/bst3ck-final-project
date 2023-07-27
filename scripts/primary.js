@@ -22,6 +22,17 @@ function getFormatLongDate(date){
     return `${monthNames[month]} ${day}, ${year}`;
 }
 
+function getShortDate(date) {
+
+    var newDate = new Date(date);
+
+    var year = newDate.getFullYear();
+    var month = (1 + newDate.getMonth()).toString();
+    var day = newDate.getDate().toString();
+  
+    return month + '/' + day;
+}
+
 let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

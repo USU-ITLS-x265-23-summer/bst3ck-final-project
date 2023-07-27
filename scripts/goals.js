@@ -39,7 +39,6 @@ $(document).ready(function(){
 
                 $("#goal-objs").append(goalItem);
                 
-
                 //Loop and Set Tasks for each project                
                 $.ajax({
                     type: "GET",

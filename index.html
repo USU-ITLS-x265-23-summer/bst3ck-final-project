@@ -9,14 +9,15 @@
     <!-- CSS Files -->
     <link rel="stylesheet" type="text/css" href="./style/primary.css" />
     <link rel="stylesheet" type="text/css" href="./style/main.css" />
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     
     <!-- Script Files -->
     <script src="./scripts/primary.js"></script>
     <script src="./scripts/globalHeader.js"></script>
+    <script src="./scripts/summary.js"></script>
     
-    <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,133 +35,43 @@
         <h1>Time and Task Management Summary</h1>
     </div>
     
-    <div class="main-content">
+    <!-- Personal Goal Section -->
+    <div class="main-content" id="personalGoalSummary">
         <div class="main-items splitColumn-100" id="goal-summary">
             <div class="card-title splitColumn-100">
                 <h2>Personal Goals</h2>
             </div>
             <hr>
-            <div class="personal-goal">
-                <div class="goal-desc splitColumn-50">
-                    <div class="goal-title">Improve Worklife Balance</div>
-                    <div class="last-activity"><span class="la-title">Last Activity: </span>Movie Night <span class="days-ago">10 days ago</span></div>
-                </div>
-                <div class="goal-status splitColumn-50">
-                    <div class="goal-percentage">70%</div>
-                    <div class="goal-progress">
-                        <div class="goal-complete" style="width:70%"></div>
-                    </div>
-                    <div class="goal-dates">
-                        <div class="goal-ss-date">1/1</div>
-                        <div class="goal-ss-date">12/31</div>
-                    </div>
-                </div>
-            </div>
-            <div class="personal-goal">
-                <div class="goal-desc splitColumn-50">
-                    <div class="goal-title">Learn a new skill</div>
-                    <div class="last-activity"><span class="la-title">Last Activity: </span>Guitar Lesson <span class="days-ago">15 days ago</span></div>
-                </div>
-                <div class="goal-status splitColumn-50">
-                    <div class="goal-percentage">30%</div>
-                    <div class="goal-progress">
-                        <div class="goal-complete" style="width:30%">
-                        </div>
-                    </div>
-                    <div class="goal-dates">
-                        <div class="goal-ss-date">1/1</div>
-                        <div class="goal-ss-date">6/30</div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="add-task">
+            <div class="add-task" id="add-peronal-goal">
                 <img src="./images/blue-add-button.svg" alt="Add Personal Goal Task">
             </div>
         </div>
     </div>
 
-    <div class="main-content">
+
+    <!-- Bottom half of the page -->
+    <div class="main-content" id="taskSummary">
+
+        <!-- Task Section -->
         <div class="main-items splitColumn-50" id="task-list">
             <div class="card-title splitColumn-100">
                 <h2>Task List</h2>
             </div>
             <hr>
-            <div class="task-item">
-                
-                <div class="complete">
-                    <svg fill="currentColor" aria-hidden="true" width="15" height="15" viewBox="0 0 20 20" focusable="false"><path d="M10 3a7 7 0 100 14 7 7 0 000-14zm-8 7a8 8 0 1116 0 8 8 0 01-16 0z" fill="currentColor"></path></svg>
-                </div>
-                <div class="task-breakdown">
-                    <div class="task-main">
-                        <span class="task-title">Play Board Games</span>
-                        <!-- <span class="dots"></span> -->
-                        <span class="task-due">7/13/23</span>
-                    </div>
 
-                    <div class="task-submenu">
-                        <div class="task-client">Milton Bradley</div>
-                        <div class="priority">
-                            <div class="task-urgent">Not Urgent</div>
-                            <div class="task-importance">High</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="matrix quad1">
-                    <div class="import">
-                        <div class="urgent"></div>
-                        <div class="notUrgent"></div>
-                    </div>
-                    <div class="notImport">
-                        <div class="urgent"></div>
-                        <div class="notUrgent"></div>
-                    </div>
-                </div>
-            </div>
-            <hr class="task-hr">
-            <div class="task-item">
-                
-                <div class="complete">
-                    <svg fill="currentColor" aria-hidden="true" width="15" height="15" viewBox="0 0 20 20" focusable="false"><path d="M10 2a8 8 0 110 16 8 8 0 010-16zm3.36 5.65a.5.5 0 00-.64-.06l-.07.06L9 11.3 7.35 9.65l-.07-.06a.5.5 0 00-.7.7l.07.07 2 2 .07.06c.17.11.4.11.56 0l.07-.06 4-4 .07-.08a.5.5 0 00-.06-.63z" fill="currentColor"></path></svg>
-                </div>
-                <div class="task-breakdown">
-                    <div class="task-main">
-                        <span class="task-title">Watch new series on Netflix</span>
-                        <!-- <span class="dots"></span> -->
-                        <span class="task-due">8/31/23</span>
-                    </div>
-
-                    <div class="task-submenu">
-                        <div class="task-client">Lincoln Lawyer</div>
-                        <div class="priority">
-                            <div class="task-urgent">Not Urgent</div>
-                            <div class="task-importance">Low</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="matrix quad4">
-                    <div class="import">
-                        <div class="urgent"></div>
-                        <div class="notUrgent"></div>
-                    </div>
-                    <div class="notImport">
-                        <div class="urgent"></div>
-                        <div class="notUrgent"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="add-task">
+            <div class="add-task" id="add-task">
                 <img src="./images/blue-add-button.svg" alt="Add Personal Goal Task">
             </div>    
         </div>
 
+        <!-- Client Section -->
         <div class="main-items splitColumn-50" id="project-summary">
             <div class="card-title splitColumn-100">
                 <h2>Client Projects</h2>
             </div>
             <hr>
-            <div class="client">
+            <!-- <div class="client">
                 <h3 class="client-name">Catepiller</h3>
                 <ol class="project-list">
                     <li>
@@ -206,7 +117,9 @@
                         </div>
                     </li>
                 </ol>
-            </div>
+            </div> -->
+
+            
         </div>
     </div>
 
