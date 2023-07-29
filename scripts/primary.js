@@ -33,7 +33,7 @@ function getShortDate(date) {
     return month + '/' + day;
 }
 
-let USDollar = new Intl.NumberFormat('en-US', {
+var USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     maximumFractionDigits: 0, 
