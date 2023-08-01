@@ -1,5 +1,8 @@
 console.log("Starting goals js");
 
+var goalLink = false;
+var taskLink = false;
+
 $(document).ready(function(){
    
     // Pull Personal Goals
@@ -13,17 +16,19 @@ $(document).ready(function(){
 
     // Add Click Button Scripts
     $(document).on("click","#add-peronal-goal", function() {
-        // selectdGoal = $(this).parent(".main-items").attr("id");
         addPersonalGoal();
     });
+
+    $(document).on("click","#add-task", function() {
+        addTask();
+    });
+
 });
 
-function addPersonalGoal() {
-    alert("Add New Goal Form");
-}
+
 
 function loadPersonalGoals() {
-
+    $(".personal-goal").remove();
     $.ajax({
         type: "GET",
         url: "http://www.bksteckler.com/klokke/pullGoalTaskSummary.php",
@@ -67,7 +72,93 @@ function loadPersonalGoals() {
 
 }
 
+function addPersonalGoal() {
+    
+    addNewGoal = "";
+
+    addNewGoal +=`<div class="add-new-div" id="addForm-goal">`;
+    addNewGoal +=`    <div class="add-new-title">Add a Personal Goal</div> `;
+    addNewGoal +=`    <form>`;
+    addNewGoal +=`        <div class="form-row">`;
+    addNewGoal +=`            <div class="new-fields" id="activity-desc-div">`;
+    addNewGoal +=`                <label for="activity-desc">Enter a title of your long term personal goal</label>`;
+    addNewGoal +=`                <input type="text" class="activity-desc" name="activity-desc" id="activity-desc">`;
+    addNewGoal +=`            </div>`;
+    addNewGoal +=`        </div>`;
+    addNewGoal +=`        <div class="form-row task-row">`;
+    addNewGoal +=`            <div class="new-fields" id="start-date-div">`;
+    addNewGoal +=`                <label for="goal-start-date">Start Date</label>`;
+    addNewGoal +=`                <input type="text" class="activity-hour" name="goal-start-date" id="goal-start-date">`;
+    addNewGoal +=`            </div>`;
+    addNewGoal +=`            <div class="new-fields" id="target-date-div">`;
+    addNewGoal +=`                <label for="target-date">Target Date</label>`;
+    addNewGoal +=`                <input type="text" class="activity-hour" name="target-date" id="target-date">`;
+    addNewGoal +=`            </div>`;
+    addNewGoal +=`            <div class="new-fields" id="estimated-hrs-div">`;
+    addNewGoal +=`                <label for="estimated-hrs">Estimated Time (hrs)</label>`;
+    addNewGoal +=`                <input type="text" class="activity-hour" name="estimated-hrs" id="estimated-hrs">`;
+    addNewGoal +=`            </div>`;
+    addNewGoal +=`            <div class="new-fields" id="goal-value-div">`;
+    addNewGoal +=`                <label for="goal-value">Goal Value</label>`;
+    addNewGoal += `                 <select name="goal-value" id="goal-value">`;                    
+    addNewGoal += `                     <option value="Family">Family</option>`;
+    addNewGoal += `                     <option value="Personal">Personal</option>`;
+    addNewGoal += `                     <option value="Professional">Professional</option>`;
+    addNewGoal += `                     <option value="Spiritual">Spiritual</option>`;
+    addNewGoal += `                 </select>`;
+    addNewGoal +=`            </div>`;
+    addNewGoal +=`        </div>`;
+    addNewGoal +=`        <div class="form-row" >`;
+    addNewGoal +=`            <div class="new-fields" id="goal-details-div">`;
+    addNewGoal +=`                <label for="goal-details">Explain your what you want to accomplish</label>`;
+    addNewGoal +=`                <textarea name="goal-details" rows="4" cols="65" id="goal-details"></textarea>`;
+    addNewGoal +=`            </div>`;
+    addNewGoal +=`        </div>`;
+    addNewGoal +=`        <div class="form-row">`;
+    addNewGoal +=`            <button type="button" class="submitBtn" id="addFormBtn-goal">Add New</button>`;
+    addNewGoal +=`        </div>`;
+    addNewGoal +=`    </form>`;
+    addNewGoal +=`</div>`;
+
+    $(addNewGoal).insertAfter("#add-peronal-goal");
+    $("#add-peronal-goal").addClass("hidden");
+    
+    if (!goalLink) {
+        $(document).on("click","#addFormBtn-goal", function() {
+            addGoals();
+        });
+        goalLink = true;
+    };
+
+}
+
+function addGoals() {
+
+    $.ajax({
+        type: "POST",
+        url: "http://bksteckler.com/klokke/postGoals.php",
+        data: JSON.stringify({
+            "activity-desc": $("#activity-desc").val(),
+            "goal-start-date": $("#goal-start-date").val(),
+            "target-date": $("#target-date").val(),
+            "estimated-hrs":$("#estimated-hrs").val(),
+            "goal-value":$("#goal-value").val(),
+            "goal-details":$("#goal-details").val()
+        }),
+        success: function() {
+            $("#add-peronal-goal").removeClass("hidden");
+            $("#addForm-goal").remove();
+            loadPersonalGoals();            
+        }
+    });
+
+
+}
+
 function loadTaskList() {
+
+    $(".task-item").remove();
+    $(".task-hr").remove();
 
     $.ajax({
         type: "GET",
@@ -167,6 +258,159 @@ function loadTaskList() {
     });
 
 }
+
+function addTask() {
+
+    var clientSelect;
+
+    $.ajax({
+        type: "GET",
+        url: "http://www.bksteckler.com/klokke/test.php",
+        async   : true,
+        success: function (data) {
+            
+            addNewTask = "";
+
+            addNewTask += `<div class="add-new-div fillDiv" id="addForm-task">`;
+            addNewTask += `     <div class="add-new-title">Add a New Task</div> `;
+            addNewTask += `     <form>`;
+            addNewTask += `         <div class="form-row task-row">`;
+            addNewTask += `             <div class="new-fields" id="Task-client-div">`;
+            addNewTask += `                 <label for="Task-client">Select the client to be billed for this task</label>`;
+            addNewTask += `                 <select name="Task-client" id="Task-client">`;
+            addNewTask += `                     <option value="0">Personal Goal</option>`;
+
+            data.forEach(function(item, index) {
+                addNewTask += `                 <option value="${item.clientId}">${item.clientName}</option>`;
+            });
+            addNewTask += `                 </select>`;
+            addNewTask += `             </div>`;
+            addNewTask += `             <div class="new-fields" id="projec-client-div">`;
+            addNewTask += `             </div>`;
+            addNewTask += `        </div>`;
+            addNewTask += `        <div class="form-row task-row">`;
+            addNewTask += `            <div class="new-fields" id="Task-title-div">`;
+            addNewTask += `                <label for="Task-title">New Task Name</label>`;
+            addNewTask += `                <input type="text" class="activity-desc" name="Task-title" id="Task-title">`;
+            addNewTask += `            </div>`;
+            addNewTask += `        </div>`;
+            addNewTask += `        <div class="form-row task-row stop-wrap">`;
+            addNewTask += `            <div class="new-fields" id="start-date-div">`;
+            addNewTask += `                <label for="start-date">Start Date</label>`;
+            addNewTask += `                <input type="text" class="activity-hour" name="start-date" id="start-date">`;
+            addNewTask += `            </div>`;
+            addNewTask += `            <div class="new-fields" id="end-date-div">`;
+            addNewTask += `                <label for="end-date">Due Date</label>`;
+            addNewTask += `                <input type="text" class="activity-hour" name="end-date" id="end-date">`;
+            addNewTask += `            </div>`;
+            addNewTask += `            <div class="new-fields" id="bill-rate-div">`;
+            addNewTask += `                <label for="bill-rate">Bill Rate</label>`;
+            addNewTask += `                <input type="text" class="activity-hour" name="bill-rate" id="bill-rate">`;
+            addNewTask += `            </div>`;
+            addNewTask += `        </div>`;
+            addNewTask += `        <div class="form-row task-row stop-wrap">`;
+            addNewTask += `            <div class="new-fields" id="urgency-div">`;
+            addNewTask += `                <label for="urgency">Urgency</label>`;
+            addNewTask += `                 <select name="urgency" id="urgency">`;
+            addNewTask += `                     <option value="1">Urgent</option>`;
+            addNewTask += `                     <option value="0">Not Urgent</option>`;
+            addNewTask += `                 </select>`;
+            addNewTask += `            </div>`;
+            addNewTask += `            <div class="new-fields" id="importance-div">`;
+            addNewTask += `                <label for="importance">Due Date</label>`;
+            addNewTask += `                 <select name="importance" id="importance">`;
+            addNewTask += `                     <option value="1">Important</option>`;
+            addNewTask += `                     <option value="0">Not Important</option>`;
+            addNewTask += `                 </select>`;
+            addNewTask += `            </div>`;
+            addNewTask += `        </div>`;
+
+            addNewTask += `        <div class="form-row task-row">`;
+            addNewTask += `            <button type="button" class="submitBtn" id="addFormBtn-task">Add New</button>`;
+            addNewTask += `        </div>`;
+            addNewTask += `    </form>`;
+            addNewTask += `</div>`;
+
+            $(addNewTask).insertAfter("#add-task");
+            $("#add-task").addClass("hidden");
+            
+            if (!taskLink) {
+                $(document).on("click","#addFormBtn-task", function() {
+                    createNewTask();
+                });
+
+                $(document).on("change","#Task-client", function() {
+                    addProjectSelector($(this).val());
+                });
+                taskLink = true;
+            }
+    
+        },
+
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("errored Out");
+        }
+    });
+}
+
+
+function addProjectSelector(clientId){
+    addNewTask = "";
+    
+    $.ajax({
+        type: "GET",
+        url: "http://www.bksteckler.com/klokke/pullProjectPer.php",
+        async: true,
+        data: {"clientId":`clientId-${clientId}`},
+        success: function (data) {
+            hasChildren = false;
+            addNewTask += `                 <label for="projec-client">Select the specific project</label>`;
+            addNewTask += `                 <select name="projec-client" id="projec-client">`;            
+            data.forEach(function(item, index) {
+                if(item.projectTitle){
+                    addNewTask += `                 <option value="${item.clientProjectId}">${item.projectTitle}</option>`;
+                } else {
+                    addNewTask += `                 <option value="none">No Projects Found</option>`;
+                }
+            });
+            addNewTask += `                 </select>`;
+            
+            $("#projec-client-div").html(addNewTask);
+            // return addNewTask;
+        },
+
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            $("#projec-client-div").html(addNewTask);
+        }
+    });
+}
+
+
+
+function createNewTask() {
+
+    $.ajax({
+        type: "POST",
+        url: "http://bksteckler.com/klokke/postTask.php",
+        data: JSON.stringify({
+            "Task-title": $("#Task-title").val(),
+            "start-date": $("#start-date").val(),
+            "end-date":$("#end-date").val(),
+            "bill-rate":$("#bill-rate").val(),
+            "importance":$("#importance").val(),
+            "urgency":$("#urgency").val(),
+            "Task-client":$("#projec-client").val()
+
+        }),
+        success: function() {
+            $("#add-task").removeClass("hidden");
+            $("#addForm-task").remove();
+            loadTaskList();
+        }
+    });
+
+}
+
 
 function loadClientList() {
     $.ajax({

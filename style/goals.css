@@ -116,7 +116,7 @@ li.pgoal-tasks-dtls::before {
 
 .new-pgoal-task form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 10px 0px;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -204,4 +204,24 @@ li.pgoal-tasks-dtls::before {
 }
 .hidden {
     display: none;
+}
+.newFormRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.activity-date {
+    width: 100px;
+}
+
+@media screen and (max-width: 745px) {
+
+
+}
+
+@media screen and (max-width: 1024px) {
+    .newFormRow {
+        flex-direction: column;
+    }
 }
