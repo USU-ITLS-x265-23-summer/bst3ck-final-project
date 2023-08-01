@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 /* **********************
 ** Task List CSS
 ********************** */
@@ -98,6 +92,128 @@ hr.task-hr {
     background-color: green;
 }
 
+
+#activity-desc-div {
+    width: 100%;
+}
+
+#goal-details {
+    width: 60%;
+}
+
+/* **********************
+** Add new form
+********************** */
+
+.add-new-div {
+    border: 1px solid darkslategray;
+    background-image: linear-gradient(to left, #bebec1, #f8fafb);
+    border-radius: 10px 10px 20px 3px;
+    min-height: 50px;
+    padding: 15px 15px;
+    font-size: .80em;
+    margin: 20px 0px;
+    width: 50%;
+}
+
+.add-new-title {
+    font-weight: bold;
+}
+
+.add-new-div form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+div.form-row div, 
+div.form-row textarea {
+    margin: 10px 25px 10px 0px;
+}
+
+div.form-row div:first-child, 
+div.form-row textarea {
+    margin-left: 0px;
+}
+
+.new-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new-fields label {
+    font-size: .90em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.new-fields.goal-activity, .new-fields.goal-time {
+    margin-right: 15px;
+}
+
+.submitBtn {
+  align-items: center;
+  background-color: #2c3e50;
+  border: 0;
+  border-radius: 70px;
+  box-sizing: border-box;
+  color: #ffffff;
+  
+  cursor: pointer;
+  display: inline-flex;
+  
+  font-weight: bold;
+  justify-content: center;
+  max-width: 480px;
+  min-height: 35px;
+  min-width: 55px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.submitBtn:hover,
+.submitBtn:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.submitBtn:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.submitBtn:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+
+.hidden {
+    display: none;
+}
+
 /* **********************
 ** Client List
 ********************** */
@@ -156,9 +272,31 @@ ol {
 }
 
 
+.fillDiv {
+    width: 90%;
+}
+
+#Task-title-div {
+    width: 80%;
+}
+
+.task-row {
+    justify-content: flex-start;
+}
+
+#start-date, #end-date, #bill-rate {
+    width: 85px;
+}
+
+.stop-wrap {
+    flex-wrap: nowrap;
+}
+
+
 /* **********************
 ** Responsive
 ********************** */
+
 
 @media screen and (max-width: 745px) {
     .task-submenu {
@@ -175,8 +313,38 @@ ol {
     .dots, .dots::before{
         display: hidden;
     }
+    .add-new-div {
+        width: 90%;
+    }
+
+    .task-row {
+        flex-direction: column;
+    }
+
     /* .client-project {
         flex-direction: column;
     } */
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .task-row {
+        flex-direction: column;
+    }
+
+    div.task-row div{
+        margin: 10px 0px;
+    }
+    #Task-title-div {
+        width: 100%;
+    }
+
+}
+
+
+@media screen and (max-width: 1200px) {
+
+
 
 }
