@@ -100,7 +100,7 @@ h2 {
     margin: 12px;
     padding: 12px;
     border-radius: 10px 10px 10px 10px;
-    background-color: #dbd9d9;
+    /* background-color: #dbd9d9; */
     color: darkslategray;
 }
 

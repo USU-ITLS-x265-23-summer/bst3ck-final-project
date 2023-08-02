@@ -5,7 +5,7 @@
 }
 
 .client-nav {
-    width: 300px;
+    min-width: 300px;
     border: 1px solid lightgray;
     padding: 24px 24px;
     border-radius: 10px;
@@ -203,4 +203,150 @@ li.task-li::before {
     height: 24px;
     margin: auto 12px;
     cursor: pointer;
+}
+
+.new-pgoal-task {
+    border: 1px solid darkslategray;
+    background-image: linear-gradient(to left, #bebec1, #f8fafb);
+    border-radius: 10px 10px 20px 3px;
+    min-height: 50px;
+    padding: 15px 15px;
+    font-size: .80em;
+    margin: 20px 0px;
+    min-width: 350px;
+}
+
+.new-pgoal-title {
+    font-weight: bold;
+}
+
+.new-pgoal-task form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.new-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new-fields label {
+    font-size: .90em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.newFormRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.new-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new-fields label {
+    font-size: .90em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.new-fields.goal-activity, .new-fields.goal-time {
+    margin-right: 15px;
+}
+
+.submitBtn {
+  align-items: center;
+  background-color: #2c3e50;
+  border: 0;
+  border-radius: 70px;
+  box-sizing: border-box;
+  color: #ffffff;
+  
+  cursor: pointer;
+  display: inline-flex;
+  
+  font-weight: bold;
+  justify-content: center;
+  max-width: 480px;
+  min-height: 35px;
+  min-width: 55px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.submitBtn:hover,
+.submitBtn:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.submitBtn:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.submitBtn:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+.goal-activity {
+    min-width: 275px;
+}
+
+.goal-time {
+    min-width: 120px;
+}
+
+.hidden {
+    display: none;
+}
+
+.new-pgoal-task {
+    width: 60%;
+}
+
+.client-project{
+    min-width: 900px;
+}
+
+@media screen and (max-width: 745px) {
+    .client-project{
+        min-width: 500px;
+    }
+    .new-pgoal-task {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .newFormRow {
+        flex-direction: column;
+    }
+
+    .client-project{
+        min-width: 700px;
+    }
 }
