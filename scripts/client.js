@@ -2,6 +2,8 @@ console.log("Starting client js");
 localStorage.setItem("selClient",null);
 
 addedBtnLink = false;
+addedNewProjectLink = false;
+addNewProjConfirmBtn = false;
 
 $(document).ready(function(){
     
@@ -53,6 +55,7 @@ function loadClient(clientStr) {
                 clientintro += `<img src="${data[0].clientIconPath}" alt="Client Logo">`;
             }
             clientintro += `</div><h2 class="client-full-name">${data[0].clientName}</h2>`;
+            // clientintro += "<div>Add New Project</div>";
 
             document.getElementById("client-intro").innerHTML = clientintro;
             
@@ -150,6 +153,99 @@ function loadClient(clientStr) {
         });
         addedBtnLink = true;
     }
+
+    insertNewProject = "<div class='insertNewProject'>Add New Project</div>"
+    $("#client-projects").append(insertNewProject);
+
+   
+    if(!addedNewProjectLink) {
+        $(document).on("click",".insertNewProject", function() {
+            addNewProject();
+            $(".insertNewProject").addClass("hidden");
+        });
+        addedNewProjectLink = true;
+    }
+}
+
+function addNewProject() {
+
+    selectdProject = localStorage.getItem("selClient");
+
+    addNewForm ="";
+
+    addNewForm += `<div class="new-project-client" id="newProj-${selectdProject}">`;
+    addNewForm += ` <div class="new-pgoal-title">Add a New Project</div>`;
+    addNewForm += ` <form class="test">`;
+    addNewForm += `     <div class="newFormRow">`;
+    addNewForm += `         <div class="new-fields goal-activity">`;
+    addNewForm += `             <label for="activity-desc">Project Name</label>`;
+    addNewForm += `             <input type="text" class="activity-desc" name="activity-desc" id="project-name">`;
+    addNewForm += `         </div>`;
+    addNewForm += `     </div>`;
+    addNewForm += `     <div class="newFormRow">`;
+    addNewForm += `         <div class="new-fields goal-time">`;
+    addNewForm += `             <label for="start-date">Start Date</label>`;
+    addNewForm += `             <input type="text" class="activity-date" name="start-date" id="start-date">`;
+    addNewForm += `         </div>`;
+    addNewForm += `         <div class="new-fields goal-time">`;
+    addNewForm += `             <label for="target-date">Target Date</label>`;
+    addNewForm += `             <input type="text" class="activity-date" name="target-date" id="target-date">`;
+    addNewForm += `         </div>`;
+    addNewForm += `         <div class="new-fields goal-time">`;
+    addNewForm += `             <label for="budget">Budget</label>`;
+    addNewForm += `             <input type="text" class="activity-hour" name="budget" id="budget">`;
+    addNewForm += `         </div>`;
+    addNewForm += `     </div>`;
+
+    addNewForm += `     <div class="newFormRow">`;
+    addNewForm += `         <div class="new-fields goal-time">`;
+    addNewForm += `             <label for="projDesc">Project Decription</label>`;
+    addNewForm +=`              <textarea name="projDesc" rows="4" cols="65" id="projDesc"></textarea>`;
+    addNewForm += `         </div>`;
+    addNewForm += `     </div>`;
+    
+    addNewForm += `     <div class="newFormRow">`;            
+    addNewForm += `         <button type="button" class="submitBtn newProjSubBtn" id="addProject-${selectdProject}">Add New</button>`
+    addNewForm += `     </div>`
+
+    addNewForm += ` </form>`
+    addNewForm += `</div>`
+
+    $(addNewForm).insertAfter('.insertNewProject');
+
+    if(!addNewProjConfirmBtn) {
+        $(document).on("click",".newProjSubBtn", function() {
+            postNewProject(selectdProject);
+        });
+        addNewProjConfirmBtn = true;
+    }
+
+}
+
+function postNewProject(clientId) {
+    // console.log(`Submitted Form: ${submittedForm}`);
+    // console.log(`Selected Goal: ${selectdGoal}`);
+    $.ajax({
+        type: "POST",
+        url: "http://bksteckler.com/klokke/postNewProj.php",
+        data: JSON.stringify({
+            "project-name":$("#project-name").val(),
+            "start-date": $("#start-date").val(),
+            "target-date": $("#target-date").val(),
+            "budget": $("#budget").val(),
+            "projDesc": $("#projDesc").val(),
+            "fkClientId": clientId,
+            "projStatus": "Active"
+        }),
+        success: function() {
+            // $(submittedForm.parent().children(".add-task-btn")).removeClass("hidden");
+            // $(submittedForm).remove();
+            
+            loadClient(localStorage.getItem("selClient"));
+        }
+    });
+
+
 }
 
 function addTasktoProject(selectdProject) {
@@ -235,7 +331,7 @@ function addNewFormSubmit(submittedForm, selectdGoal) {
     
     $.ajax({
         type: "POST",
-        url: "http://bksteckler.com/klokke/postProjTask.php",
+        url: "http://bksteckler.com/klokke/postClientProject.php",
         data: JSON.stringify({
             "activity-desc":$("#activity-desc").val(),
             "start-date": $("#start-date").val(),

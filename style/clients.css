@@ -205,7 +205,7 @@ li.task-li::before {
     cursor: pointer;
 }
 
-.new-pgoal-task {
+.new-pgoal-task, .new-project-client {
     border: 1px solid darkslategray;
     background-image: linear-gradient(to left, #bebec1, #f8fafb);
     border-radius: 10px 10px 20px 3px;
@@ -220,7 +220,7 @@ li.task-li::before {
     font-weight: bold;
 }
 
-.new-pgoal-task form {
+.new-pgoal-task form, .new-project-client form {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
@@ -324,19 +324,33 @@ li.task-li::before {
     display: none;
 }
 
-.new-pgoal-task {
+.new-pgoal-task, .new-project-client {
     width: 60%;
+    min-width: 600px;
 }
 
 .client-project{
     min-width: 900px;
 }
 
+.insertNewProject {
+    cursor: pointer;
+    font-size: .80em;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0px 20px;
+}
+
+.new-project-client {
+    padding: 1em 1.5em;
+    margin: 1em 1.9em;
+}
+
 @media screen and (max-width: 745px) {
     .client-project{
         min-width: 500px;
     }
-    .new-pgoal-task {
+    .new-pgoal-task, .new-project-client {
         width: 90%;
     }
 }
